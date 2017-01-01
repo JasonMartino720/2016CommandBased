@@ -27,12 +27,12 @@ public class IntakeUp extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return !OI.intakeActUp.get();
+        return (!OI.intakeActUp.get());
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.intake.set(0.0);
+    	Robot.intake.intakeActOff();
     }
 
     // Called when another command which requires one or more of the same

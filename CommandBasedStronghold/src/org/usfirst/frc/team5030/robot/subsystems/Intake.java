@@ -51,6 +51,11 @@ public class Intake extends Subsystem
     {
     	RobotMap.intakeAct.set(1.0);    
    	}
+    
+    public void intakeActOff()
+    {
+    	RobotMap.intakeAct.set(0.0);
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

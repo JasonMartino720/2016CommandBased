@@ -12,8 +12,8 @@ import org.usfirst.frc.team5030.robot.subsystems.Shooter;
 import org.usfirst.frc.team5030.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team5030.robot.subsystems.Intake;
 import org.usfirst.frc.team5030.robot.subsystems.Manipulator;
-import org.usfirst.frc.team5030.robot.LTriggerConversion;
-import org.usfirst.frc.team5030.robot.RTriggerConversion;
+import org.usfirst.frc.team5030.robot.commands.SpinFlywheels;
+
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.Timer;
@@ -134,6 +134,15 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
     	//autonomousCommand.cancel();
         Scheduler.getInstance().run();
+        /*
+        double lTrigger = OI.OperatorStick.getRawAxis(2);
+        if(lTrigger > 0.95)
+		{ shooter.spinFlywheels(); }
+        else
+        {
+        	shooter.flywheelsOff();
+        }
+        */
     }
     
     /**

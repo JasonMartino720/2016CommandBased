@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5030.robot.commands;
 
+import org.usfirst.frc.team5030.robot.OI;
 import org.usfirst.frc.team5030.robot.Robot;
 import org.usfirst.frc.team5030.robot.RobotMap;
 
@@ -21,18 +22,28 @@ public class SpinFlywheels extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	System.out.println("Jason is retarded ");
     	Robot.shooter.spinFlywheels();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	double lTrigger = OI.OperatorStick.getRawAxis(2);
+    	boolean isPressed = false;
+    	
+    	if(lTrigger < 0.95)
+    	{
+    		System.out.println("Kurreem sucks");
+    		isPressed = true;
+    		
+    	}
+    	
+    	 return isPressed;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	RobotMap.lFlywheel.set(0.0);
-    	RobotMap.rFlywheel.set(0.0);
+    	Robot.shooter.flywheelsOff();
     }
 
     // Called when another command which requires one or more of the same

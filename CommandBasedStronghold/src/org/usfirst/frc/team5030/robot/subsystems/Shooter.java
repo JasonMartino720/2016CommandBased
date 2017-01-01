@@ -53,9 +53,17 @@ public class Shooter extends Subsystem
 	
 	public void spinFlywheels()
 	{
-		RobotMap.rFlywheel.set(0.3);
-		RobotMap.lFlywheel.set(0.3);
-		
+		double lTrigger = OI.OperatorStick.getRawAxis(2);
+        if(lTrigger > 0.95)
+        {	
+			RobotMap.rFlywheel.set(0.3);
+			RobotMap.lFlywheel.set(0.3);
+        }
+        else 
+        {
+        	RobotMap.rFlywheel.set(0.0);
+			RobotMap.lFlywheel.set(0.0);
+        }	
 	}
 	
 	public void shoot()
@@ -64,6 +72,12 @@ public class Shooter extends Subsystem
 		RobotMap.lFlywheel.set(0.3);
 		RobotMap.lBelt.set(-0.3);
 		RobotMap.rBelt.set(0.3);
+	}
+	
+	public void flywheelsOff()
+	{
+		RobotMap.lFlywheel.set(0.0);
+    	RobotMap.rFlywheel.set(0.0);
 	}
 
     public void initDefaultCommand() 

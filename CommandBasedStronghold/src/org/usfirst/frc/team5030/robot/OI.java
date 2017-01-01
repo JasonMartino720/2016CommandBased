@@ -4,8 +4,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team5030.robot.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
-import org.usfirst.frc.team5030.robot.LTriggerConversion;
-import org.usfirst.frc.team5030.robot.RTriggerConversion;
+
 //import org.usfirst.frc.team5030.robot.commands.ExampleCommand;
 
 /**
@@ -29,22 +28,14 @@ public class OI
 		public static Button intakeOut = new JoystickButton(OperatorStick, 5);
 		public static Button Flash = new JoystickButton(OperatorStick, 1);
 	
-		
-		
+				
 		public OI()
 		{
-			if(OI.OperatorStick.getRawAxis(2) > 0.95)
-			{ new SpinFlywheels(); }
-			System.out.println("Val" + LTriggerConversion.spinUp);
-			
-			if(RTriggerConversion.shoot)
-			{ new Shoot(); }
-			
 			Flash.whileHeld(new Flash());
 			intakeIn.whileHeld(new IntakeIn());
 			intakeOut.whileHeld(new IntakeOut());
-			intakeActUp.whileHeld(new IntakeUp());
-			intakeActDown.whileHeld(new IntakeDown());
+			intakeActUp.whenPressed(new IntakeUp());
+			intakeActDown.whenPressed(new IntakeDown());
 			manipulatorUp.whileHeld(new ManipulatorUp());
 			manipulatorDown.whileHeld(new ManipulatorDown());
 		}

@@ -53,7 +53,7 @@ public class RobotMap
 		public static Talon intake = new Talon(intakeSpin);
 				
 		//Actuates Intake
-		static final int intakeMotor = 1;
+		static final int intakeMotor = 2;
 		public static Talon intakeAct = new Talon(intakeMotor);
 	
 	//Defense Manipulator
@@ -61,7 +61,7 @@ public class RobotMap
 		
 		
 		//Defensive Manipulator
-		static final int manipulator = 2;
+		static final int manipulator = 1;
 		public static Talon man = new Talon(manipulator);
 	
 	//DART Linear Actuator
